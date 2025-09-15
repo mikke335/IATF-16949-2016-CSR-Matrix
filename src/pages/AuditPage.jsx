@@ -8,17 +8,18 @@ import clauses from '../data/clauses.json';
 const AuditPage = () => (
   <div>
     <h2>Auditoría IATF + CSR</h2>
-    {clauses.map(({ clause, description, csr }, index) => (
-      <ClauseCard
-        key={index}
-        clause={clause}
-        description={description}
-        csr={csr}
-      />
-    ))}
+    
+{Array.isArray(clauses) && clauses.map(({ Cláusula, Descripción, CSR }, index) => (
+  <ClauseCard
+    key={index}
+    clause={Cláusula}
+    description={Descripción}
+    csrList={<CSRList csr={CSR} />}
+  />
+))}
+
     <AuditForm />
   </div>
 );
-
 
 export default AuditPage;
